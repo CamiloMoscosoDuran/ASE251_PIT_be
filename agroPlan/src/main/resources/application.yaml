@@ -1,0 +1,39 @@
+server:
+  port: 8085  # Valor por defecto si PORT no está configurado
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=AgroPlan;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: 'Admin12345'
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: America/Lima  # Zona horaria de Perú
+        format_sql: true
+  jackson:
+    time-zone: America/Lima  # Configurar timezone para Jackson
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    operations-sorter: method
+  openapi:
+    info:
+      title: agroPlan API
+      description: API REST para gestionar la planificación agrícola
+      version: 1.0.0
+      contact:
+        name: agroPlan
+        url: https://agroplan.example.com
