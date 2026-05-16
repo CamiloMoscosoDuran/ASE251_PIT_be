@@ -77,16 +77,20 @@ GO
 
 ---
 --- 6. TABLA: CALENDARIO INTELIGENTE (Eventos de la finca)
----
+
 CREATE TABLE eventos_calendario (
     id_evento INT IDENTITY(1,1) PRIMARY KEY,
     id_campo INT FOREIGN KEY REFERENCES campos(id_campo),
     id_cultivo INT FOREIGN KEY REFERENCES cultivos(id_cultivo),
     fecha DATE NOT NULL,
-    tipo_evento VARCHAR(30) NOT NULL,      -- Ej: 'Siembra', 'Cosecha', 'Riego', 'Fertilización'
+    tipo_evento VARCHAR(30) NOT NULL,
     hectareas DECIMAL(10,2),
     estado VARCHAR(30),
-    descripcion NVARCHAR(250)
+    descripcion NVARCHAR(250),
+    created_at DATETIME2,
+    updated_at DATETIME2,
+    deleted_at DATETIME2,
+    restored_at DATETIME2
 );
 GO
 

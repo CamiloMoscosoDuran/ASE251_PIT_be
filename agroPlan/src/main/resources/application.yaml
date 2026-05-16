@@ -37,3 +37,7 @@ springdoc:
       contact:
         name: agroPlan
         url: https://agroplan.example.com
+
+
+
+        #http://localhost:8085/swagger-ui/index.html#/ 
