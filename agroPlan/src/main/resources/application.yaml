@@ -20,6 +20,7 @@ spring:
         format_sql: true
   jackson:
     time-zone: America/Lima  # Configurar timezone para Jackson
+    property-naming-strategy: SNAKE_CASE
 
 springdoc:
   api-docs:
