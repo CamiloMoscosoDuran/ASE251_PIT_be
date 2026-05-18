@@ -85,7 +85,6 @@ public class ReporteHistoricoServiceImpl implements ReporteHistoricoService {
     public ReporteHistorico restore(Integer id) {
         return repository.findById(id).map(existente -> {
             existente.setRestoredAt(LocalDateTime.now());
-            existente.setDeletedAt(null);
             return repository.save(existente);
         }).orElseThrow(() -> new RuntimeException("Reporte no encontrado con id: " + id));
     }

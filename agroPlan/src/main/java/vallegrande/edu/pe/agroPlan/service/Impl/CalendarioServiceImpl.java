@@ -81,6 +81,7 @@ public class CalendarioServiceImpl implements CalendarioService {
         Calendario existente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Evento no encontrado con id: " + id));
         existente.setDeletedAt(LocalDateTime.now());
+        existente.setEstado("INACTIVO");
         existente.setUpdatedAt(LocalDateTime.now());
         repository.save(existente);
     }
@@ -89,8 +90,8 @@ public class CalendarioServiceImpl implements CalendarioService {
     public Calendario restore(Integer id) {
         Calendario existente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Evento no encontrado con id: " + id));
-        existente.setDeletedAt(null);
         existente.setRestoredAt(LocalDateTime.now());
+        existente.setEstado("PENDIENTE");
         existente.setUpdatedAt(LocalDateTime.now());
         return repository.save(existente);
     }

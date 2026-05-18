@@ -1,5 +1,5 @@
 server:
-  port: 8086  # Cambiado a puerto libre porque 8085 ya estaba en uso
+  port: 8085
 
 spring:
   datasource:
